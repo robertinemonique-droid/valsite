@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("nicho3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-family: Broadway, Impact, sans-serif;
+    color: #db2818;
+    background: rgba(235, 241, 163, 0.7);
+    padding: 10px 20px;
+    border-radius: 15px;
+    animation: fadeInUp 1.5s ease forwards;
+    margin-bottom: 20px;
+}
+
+
+#welcomeBox {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 0.5s;
+
+    background: rgb(220, 226, 145);
+    border-radius: 40px;
+    padding: 25px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    font-size: 25px;
+    color: #db2818;
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #ff69b4;
+    color: rgb(240, 246, 248);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🥰😍 World’s most beautiful 😍🥰</h1>
+
+<div id="welcomeBox">
+🙂‍↔️🥹 WILL YOU BE MY VAL? 😍❤️
+<div class="btn-group">
+    <button id="yes1">Yes I will 😍</button>
+    <button id="yes2">Say yes 😭</button>
+</div>
+</div>
+
+<script>
+document.getElementById("yes1").onclick = function () {
+    window.location.href = "vals3.html";   
+};
+
+document.getElementById("yes2").onclick = function () {
+    window.location.href = "vals4.html";   
+};
+</script>
+
+</body>
+</html>

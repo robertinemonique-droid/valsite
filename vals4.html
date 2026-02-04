@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>MY VALSTIE 💖</title>
+
+<style>
+  /* RESET */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+  }
+
+  /* VIDEO BACKGROUND */
+  .video-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    z-index: -2;  /* behind everything */
+  }
+
+  /* CONTENT ON TOP */
+  .content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: rgba(0,0,0,0.4); /* translucent dark overlay */
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  .content h1 {
+    background: rgba(255, 105, 180, 0.8);
+    padding: 20px 30px;
+    border-radius: 20px;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* EMOJI CONTAINER */
+  #emoji-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none; /* clicks pass through */
+    overflow: visible;
+    z-index: 10; /* above content */
+  }
+
+  /* EMOJI STYLE AND ANIMATION */
+  .emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 1;
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    bottom: 0;   /* start at bottom */
+  }
+
+  /* FLOAT UP ANIMATION */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-150vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Video background -->
+<video id="videoPlayer" class="video-bg" autoplay muted loop>
+  <source src="9999.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<!-- Flying emojis -->
+<div id="emoji-container"></div>
+
+<!-- Content -->
+<div class="content">
+  <h1>💖 SHE SAID YES! 💖
+    <br>
+    Annoying, tsw! should I beg you first? 😒 </h1>
+</div>
+
+<script>
+  // Emoji floating script
+  const emojis = ["🎉", "🎊", "🥳", "💃", "🕺", "✨", "🎈", "🎵"];
+  const container = document.getElementById("emoji-container");
+
+  function createEmoji() {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.bottom = "-2rem";  // start just below screen
+    emoji.style.animationDuration = (3 + Math.random() * 3) + "s";
+    container.appendChild(emoji);
+    emoji.addEventListener("animationend", () => emoji.remove());
+  }
+
+  // Create a new emoji every 300ms
+  setInterval(createEmoji, 300);
+</script>
+
+</body>
+</html>
+
+
